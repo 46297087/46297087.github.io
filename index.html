@@ -282,6 +282,13 @@
 
               <time title="创建时间：2020-08-17 23:15:39" itemprop="dateCreated datePublished" datetime="2020-08-17T23:15:39+08:00">2020-08-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-18 02:25:27" itemprop="dateModified" datetime="2020-08-18T02:25:27+08:00">2020-08-18</time>
+              </span>
 
           
 
@@ -294,20 +301,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+Quick Start
+Create a new post
+1
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+$ hexo new "My New Post"
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
+More info: Writing
+
+Run server
+1
+
+
+$ hexo s
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/17/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -357,7 +375,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-18 00:35:09" itemprop="dateModified" datetime="2020-08-18T00:35:09+08:00">2020-08-18</time>
+                <time title="修改时间：2020-08-18 02:24:05" itemprop="dateModified" datetime="2020-08-18T02:24:05+08:00">2020-08-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -380,19 +398,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在实际运维工作中，70%左右的运维相关工和环境变更有着直接关系，实施变更管理的难点不是工具，而是使用过程中的流程管理。如发布平台，监控平台，配置中心等相关数据孤立，单独维护重复操作成本较高。根据自身业务开发的CMDB把一些相关的信息作为资源在系统进行管理，通过API接口方式提供子系统或其他平台调用，当信息变更时能及时联动</p>
-<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p><img src="/images/pasted-0.png" alt="架构图"></p>
-<p>CMDB设计重要的就是和自动化结合，当一台设备上架后通过录入网卡,SN号等信息选择操作系统，RAID分区等，完成自动装机后将自动更新到CMDB和虚拟化池中。后续在项目资源领用时通过自动化接口生成标准化环境，加入项目服务中。同时其他系统平台也知晓变更信息，保证了后续操作的可靠性。</p>
-<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p>已知的信息种类繁多，如项目信息项目属于那条业务线对应的开发人员信息，主机信息硬件配置，机架位置网络地址，应用信息代码库的地址，部署目录，集群环境等。我们将信息大致分为设备信息，项目信息。这里必须要确保CMDB数据的准确性，必须制定数据录入流程。<br>硬件信息基本是固定的，如节点配置，设备物理位置，关联交换机等，其中大部分可以通过自动化手段去获取后自动变更，如通过IPMI接口获取硬件信息，ansible获取统信息等系。</p>
-<p>项目信息十分重要，项目中的环境，资源，发布，监控等信息关联，有了这些信息才能让资源真正的生效。为了保证录入信息的标准化和准确性，目前使用项目创建模板录入以及填入关键信息后自动生成其他部分。</p>
-<p>在项目创建后会调用API完成环境初始化如git仓库，jenkins job，Nginx，logstash，监控等配置创建。</p>
-<p>在CMDB上线初期，信息录入依靠人工完成。设想下，一个项目有测试，预发，生产，压测，沙箱环境，在录入jenkisn，git配置，生成web配置等，每个环节需要录入大量的数据信息，重复劳动而数据准确性不高。后期总结其他业务需求，使用模板调用API自动生成多环境配置以及相关依赖配置，不仅简化了步骤，还保证了数据的准确性。</p>
-<h3 id="中心化"><a href="#中心化" class="headerlink" title="中心化"></a>中心化</h3><p>CMDB是中心化的，通过数据信息运维平台实现了虚拟化管理，自动化管理，设备维保等子系统。以及完成对接发布平台，配置中心，数据库管理，告警中心，docker管理等平台服务，各个平台相互依存，在CMDB发送变更后各个平台能及时应用到具体业务场景上。<br>CMDB初期其他平台直接调用接口获取相关信息，随着信息量逐步增加，数据维度越来越多。服务调用越来越慢。后增加缓存服务，CMDB变更记录后自动更新至缓存，接口稳定性时效性得到保障</p>
-<p>（场景-业务扩缩容）<br>（场景-虚拟化管理）</p>
-<h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>CMDB的价值之一，将数据信息可视化展示。直观的让相关人员了解项目信息，使用资源，项目成本，可用容量。</p>
-<p>运维成本控制是运维建设的核心部分之一，也是极其复杂的。我们要知道每个月费用支出在哪里，每月项目所使用的资源是多少？ CMDB中记录了每个机柜，网络专线，设备采购，其它第三方服务等费用。通过每月的硬件设备折旧，机柜容量&amp;网络专线分摊为参考，项目分别使用的虚拟化或硬件资源加上专属服务采购费用，计算出相应项目每月环境运营成本。<br>结合每月的调用量趋势图，对项目的扩容缩容提供有效的依据。硬件采购历史价格对日后预算费用提供参考。</p>
-<h3 id="未来规划"><a href="#未来规划" class="headerlink" title="未来规划"></a>未来规划</h3><p>1.CMDB建设成功带来的另一个未来价值是作为配置元数据的价值，可以为运维大数据分析提供可信基础，促进运维走向大数据分析、智能决策阶段。如，我们在做变更的时候，需要去看该变更的影响范围是多大? 变更是否将引起什么样的情况？曾经这样的变更是否引起故障？如果有故障是怎么修复？<br>2.网络拓扑关系没有在CMDB中显示，计划将基于SNMP协议生成网络拓扑</p>
+          在实际运维工作中，70%左右的运维相关工和环境变更有着直接关系，实施变更管理的难点不是工具，而是使用过程中的流程管理。如发布平台，监控平台，配置中心等相关数据孤立，单独维护重复操作成本较高。根据自身业务开发的CMDB把一些相关的信息作为资源在系统进行管理，通过API接口方式提供子系统或其他平台调用，当信息变更时能及时联动
 
+系统设计
+
+
+CMDB设计重要的就是和自动化结合，当一台设备上架后通过录入网卡,SN号等信息选择操作系统，RAID分区等，完成自动装机后将自动更新到CMDB和虚拟化池中。后续在项目资源领用时通过自动化接口生成标准化环境，加入项目服务中。同时其他系统平台也知晓变更信息，保证了
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/09/05/cmdb/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -442,7 +461,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-18 00:30:13" itemprop="dateModified" datetime="2020-08-18T00:30:13+08:00">2020-08-18</time>
+                <time title="修改时间：2020-08-18 02:25:56" itemprop="dateModified" datetime="2020-08-18T02:25:56+08:00">2020-08-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -465,58 +484,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="Mysql常见问题"><a href="#Mysql常见问题" class="headerlink" title="Mysql常见问题"></a>Mysql常见问题</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><p>MySQL常见的两种存储引擎：MyISAM与InnoDB</p>
-<h4 id="字符集及校对规则"><a href="#字符集及校对规则" class="headerlink" title="字符集及校对规则"></a>字符集及校对规则</h4><p>字符集指的是一种从二进制编码到某类字符符号的映射。校对规则则是指某种字符集下的排序规则。Mysql中每一种字符集都会对应一系列的校对规则。</p>
-<p>Mysql采用的是类似继承的方式指定字符集的默认值，每个数据库以及每张数据表都有自己的默认值，他们逐层继承。比如：某个库中所有表的默认字符集将是该数据库所指定的字符集（这些表在没有指定字符集的情况下，才会采用默认字符集） PS：整理自《Java工程师修炼之道》</p>
-<h4 id="索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）"><a href="#索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）" class="headerlink" title="索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）"></a>索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）</h4><p>Mysql索引使用的数据结构主要有BTree索引 和 哈希索引 。对于哈希索引来说，底层的数据结构就是哈希表，因此在绝大多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快；其余大部分场景，建议选择BTree索引。</p>
-<p>Mysql的BTree索引使用的是B数中的B+Tree，但对于主要的两种存储引擎的实现方式是不同的。</p>
-<p>  MyISAM: B+Tree叶节点的data域存放的是数据记录的地址。在索引检索的时候，首先按照B+Tree搜索算法搜索索引，如果指定的Key存在，则取出其data域的值，然后以data域的值为地址读取相应的数据记录。这被称为“非聚簇索引”。</p>
-<p>  InnoDB: 其数据文件本身就是索引文件。相比MyISAM，索引文件和数据文件是分离的，其表数据文件本身就是按B+Tree组织的一个索引结构，树的叶节点data域保存了完整的数据记录。这个索引的key是数据表的主键，因此InnoDB表数据文件本身就是主索引。这被称为“聚簇索引（或聚集索引）”。而其余的索引都作为辅助索引，辅助索引的data域存储相应记录主键的值而不是地址，这也是和MyISAM不同的地方。在根据主索引搜索时，直接找到key所在的节点即可取出数据；在根据辅助索引查找时，则需要先取出主键的值，在走一遍主索引。 因此，在设计表的时候，不建议使用过长的字段作为主键，也不建议使用非单调的字段作为主键，这样会造成主索引频繁分裂。 PS：整理自《Java工程师修炼之道》</p>
-<h4 id="查询缓存的使用"><a href="#查询缓存的使用" class="headerlink" title="查询缓存的使用"></a>查询缓存的使用</h4><p>my.cnf加入以下配置，重启Mysql开启查询缓存</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">query_cache_type=1</span><br><span class="line">query_cache_size=600000</span><br></pre></td></tr></table></figure>
-<p>Mysql执行以下命令也可以开启查询缓存</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> global  query_cache_type=1;</span><br><span class="line"><span class="built_in">set</span> global  query_cache_size=600000;</span><br></pre></td></tr></table></figure>
-<p>如上，开启查询缓存后在同样的查询条件以及数据情况下，会直接在缓存中返回结果。这里的查询条件包括查询本身、当前要查询的数据库、客户端协议版本号等一些可能影响结果的信息。因此任何两个查询在任何字符上的不同都会导致缓存不命中。此外，如果查询中包含任何用户自定义函数、存储函数、用户变量、临时表、Mysql库中的系统表，其查询结果也不会被缓存。</p>
-<p>缓存建立之后，Mysql的查询缓存系统会跟踪查询中涉及的每张表，如果这些表（数据或结构）发生变化，那么和这张表相关的所有缓存数据都将失效。</p>
-<p>缓存虽然能够提升数据库的查询性能，但是缓存同时也带来了额外的开销，每次查询后都要做一次缓存操作，失效后还要销毁。 因此，开启缓存查询要谨慎，尤其对于写密集的应用来说更是如此。如果开启，要注意合理控制缓存空间大小，一般来说其大小设置为几十MB比较合适。此外，还可以通过sql_cache和sql_no_cache来控制某个查询语句是否需要缓存：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select sql_no_cache count(*) from usr;</span><br></pre></td></tr></table></figure>
-<h4 id="事务机制"><a href="#事务机制" class="headerlink" title="事务机制"></a>事务机制</h4><p>关系性数据库需要遵循ACID规则，具体内容如下：</p>
-<p>事务的特性<br>事务的特性<br>原子性： 事务是最小的执行单位，不允许分割。事务的原子性确保动作要么全部完成，要么完全不起作用；<br>一致性： 执行事务前后，数据保持一致；<br>隔离性： 并发访问数据库时，一个用户的事物不被其他事物所干扰，各并发事务之间数据库是独立的；<br>持久性: 一个事务被提交之后。它对数据库中数据的改变是持久的，即使数据库 发生故障也不应该对其有任何影响。<br>  为了达到上述事务特性，数据库定义了几种不同的事务隔离级别：</p>
-<p>READ_UNCOMMITTED（未授权读取）: 最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读、幻读或不可重复读</p>
-<p>READ_COMMITTED（授权读取）: 允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读或不可重复读仍有可能发生</p>
-<p>REPEATABLE_READ（可重复读）: 对同一字段的多次读取结果都是一致的，除非数据是被本身事务自己所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</p>
-<p>SERIALIZABLE（串行）: 最高的隔离级别，完全服从ACID的隔离级别。所有的事务依次逐个执行，这样事务之间就完全不可能产生干扰，也就是说，该级别可以防止脏读、不可重复读以及幻读。但是这将严重影响程序的性能。通常情况下也不会用到该级别。</p>
-<p>这里需要注意的是：Mysql 默认采用的 REPEATABLE_READ隔离级别 Oracle 默认采用的 READ_COMMITTED隔离级别.</p>
-<p>事务隔离机制的实现基于锁机制和并发调度。其中并发调度使用的是MVVC（多版本并发控制），通过保存修改的旧版本信息来支持并发一致性读和回滚等特性。</p>
-<h4 id="锁机制与InnoDB锁算法"><a href="#锁机制与InnoDB锁算法" class="headerlink" title="锁机制与InnoDB锁算法"></a>锁机制与InnoDB锁算法</h4><p>MyISAM和InnoDB存储引擎使用的锁：</p>
-<p>MyISAM采用表级锁(table-level locking)。</p>
-<p>InnoDB支持行级锁(row-level locking)和表级锁,默认为行级锁</p>
-<p>表级锁和行级锁对比：</p>
-<p>表级锁： Mysql中锁定 粒度最大 的一种锁，对当前操作的整张表加锁，实现简单，资源消耗也比较少，加锁快，不会出现死锁。其锁定粒度最大，触发锁冲突的概率最高，并发度最低，MyISAM和 InnoDB引擎都支持表级锁。</p>
-<p>行级锁： Mysql中锁定 粒度最小 的一种锁，只针对当前操作的行进行加锁。 行级锁能大大减少数据库操作的冲突。其加锁粒度最小，并发度高，但加锁的开销也最大，加锁慢，会出现死锁。</p>
-<p>InnoDB存储引擎的锁的算法有三种：</p>
-<p>Record lock：单个行记录上的锁</p>
-<p>Gap lock：间隙锁，锁定一个范围，不包括记录本身</p>
-<p>Next-key lock：record+gap 锁定一个范围，包含记录本身</p>
-<p>相关知识点：</p>
-<p>innodb对于行的查询使用next-key lock<br>Next-locking keying为了解决Phantom Problem幻读问题<br>当查询的索引含有唯一属性时，将next-key lock降级为record key<br>Gap锁设计的目的是为了阻止多个事务将记录插入到同一范围内，而这会导致幻读问题的产生<br>有两种方式显式关闭gap锁：（除了外键约束和唯一性检查外，其余情况仅使用record lock） A. 将事务隔离级别设置为RC B. 将参数innodb_locks_unsafe_for_binlog设置为1</p>
-<h4 id="大表优化"><a href="#大表优化" class="headerlink" title="大表优化"></a>大表优化</h4><p>当MySQL单表记录数过大时，数据库的CRUD性能会明显下降，一些常见的优化措施如下：</p>
-<p>限定数据的范围： 务必禁止不带任何限制数据范围条件的查询语句。比如：我们当用户在查询订单历史的时候，我们可以控制在一个月的范围内。；</p>
-<p>读/写分离： 经典的数据库拆分方案，主库负责写，从库负责读；</p>
-<p>缓存： 使用MySQL的缓存，另外对重量级、更新少的数据可以考虑使用应用级别的缓存；</p>
-<p>垂直分区：</p>
-<p>根据数据库里面数据表的相关性进行拆分。 例如，用户表中既有用户的登录信息又有用户的基本信息，可以将用户表拆分成两个单独的表，甚至放到单独的库做分库。</p>
-<p>简单来说垂直拆分是指数据表列的拆分，把一张列比较多的表拆分为多张表。 如下图所示，这样来说大家应该就更容易理解了。</p>
-<p>垂直拆分的优点： 可以使得行数据变小，在查询时减少读取的Block数，减少I/O次数。此外，垂直分区可以简化表的结构，易于维护。</p>
-<p>垂直拆分的缺点： 主键会出现冗余，需要管理冗余列，并会引起Join操作，可以通过在应用层进行Join来解决。此外，垂直分区会让事务变得更加复杂；</p>
-<p>水平分区：</p>
-<p>保持数据表结构不变，通过某种策略存储数据分片。这样每一片数据分散到不同的表或者库中，达到了分布式的目的。 水平拆分可以支撑非常大的数据量。</p>
-<p>水平拆分是指数据表行的拆分，表的行数超过200万行时，就会变慢，这时可以把一张的表的数据拆成多张表来存放。举个例子：我们可以将用户信息表拆分成多个用户信息表，这样就可以避免单一表数据量过大对性能造成影响。</p>
-<p>数据库水平拆分</p>
-<p>水品拆分可以支持非常大的数据量。需要注意的一点是:分表仅仅是解决了单一表数据过大的问题，但由于表的数据还是在同一台机器上，其实对于提升MySQL并发能力没有什么意义，所以 水品拆分最好分库 。</p>
-<p>水平拆分能够 支持非常大的数据量存储，应用端改造也少，但 分片事务难以解决 ，跨界点Join性能较差，逻辑复杂。《Java工程师修炼之道》的作者推荐 尽量不要对数据进行分片，因为拆分会带来逻辑、部署、运维的各种复杂度 ，一般的数据表在优化得当的情况下支撑千万以下的数据量是没有太大问题的。如果实在要分片，尽量选择客户端分片架构，这样可以减少一次和中间件的网络I/O。</p>
-<p>下面补充一下数据库分片的两种常见方案：<br>客户端代理： 分片逻辑在应用端，封装在jar包中，通过修改或者封装JDBC层来实现。 当当网的 Sharding-JDBC 、阿里的TDDL是两种比较常用的实现。<br>中间件代理： 在应用和数据中间加了一个代理层。分片逻辑统一维护在中间件服务中。 我们现在谈的 Mycat、360的Atlas、网易的DDB等等都是这种架构的实现。</p>
+          Mysql常见问题
+存储引擎
+MySQL常见的两种存储引擎：MyISAM与InnoDB
 
+字符集及校对规则
+字符集指的是一种从二进制编码到某类字符符号的映射。校对规则则是指某种字符集下的排序规则。Mysql中每一种字符集都会对应一系列的校对规则。
+
+Mysql采用的是类似继承的方式指定字符集的默认值，每个数据库以及每张数据表都有自己的默认值，他们逐层继承。比如：某个库中所有表的默认字符集将是该数据库所指定的字符集（这些表在没有指定字符集的情况下，才会采用默认字符集） PS：整理自《Java工程师修炼之道》
+
+索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/31/Mysql%E7%94%AF%E6%AD%8C%EE%9D%86%E9%97%82%EE%87%80%EE%95%BD/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -566,7 +551,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-18 00:30:12" itemprop="dateModified" datetime="2020-08-18T00:30:12+08:00">2020-08-18</time>
+                <time title="修改时间：2020-08-18 02:25:12" itemprop="dateModified" datetime="2020-08-18T02:25:12+08:00">2020-08-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -589,57 +574,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a target="_blank" rel="noopener" href="http://docs.ceph.org.cn/">http://docs.ceph.org.cn/</a></p>
-<h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10.224.45.213    Mds    Mon    Osd</span><br><span class="line">10.224.45.215         Mon    Osd</span><br><span class="line">10.224.45.217         Mon    Osd</span><br><span class="line">10.224.188.120    ceph-deploy          </span><br></pre></td></tr></table></figure>
+          参考
+http://docs.ceph.org.cn/
 
-<h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><h4 id="1）主机名"><a href="#1）主机名" class="headerlink" title="1）主机名"></a>1）主机名</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">10.224.188.120 ceph-deploy-1.nick.com</span><br><span class="line">10.224.45.213 ceph-node-45-213.nick.com ceph-node-45-213</span><br><span class="line">10.224.45.215 ceph-node-45-215.nick.com ceph-node-45-215</span><br><span class="line">10.224.45.217 ceph-node-45-217.nick.com ceph-node-45-217</span><br></pre></td></tr></table></figure>
-<h4 id="2）deploy节点用户秘钥添加"><a href="#2）deploy节点用户秘钥添加" class="headerlink" title="2）deploy节点用户秘钥添加"></a>2）deploy节点用户秘钥添加</h4><p>……</p>
-<h4 id="3）配置ssh选项"><a href="#3）配置ssh选项" class="headerlink" title="3）配置ssh选项"></a>3）配置ssh选项</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[ops@ceph-deploy-1 ~]$ cat ~/.ssh/config</span><br><span class="line">Host ceph-node-45-213</span><br><span class="line">Hostname ceph-node-45-213.nick.com</span><br><span class="line">User ops</span><br><span class="line">Port 20010</span><br><span class="line">Host ceph-node-45-215</span><br><span class="line">Hostname ceph-node-45-215.nick.com</span><br><span class="line">User ops</span><br><span class="line">Port 20010</span><br><span class="line">Host ceph-node-45-217</span><br><span class="line">Hostname ceph-node-45-217.nick.com</span><br><span class="line">User ops</span><br><span class="line">Port 20010</span><br><span class="line">Host app-70-17</span><br><span class="line">Hostname app-70-17.nick.com</span><br><span class="line">User ops</span><br><span class="line">Port 20010</span><br></pre></td></tr></table></figure>
-<h4 id="4）创建集群目录"><a href="#4）创建集群目录" class="headerlink" title="4）创建集群目录"></a>4）创建集群目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir  ppc-ceph-cluster-1</span><br><span class="line">$ <span class="built_in">cd</span> ppc-ceph-cluster-1</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="1）初始化集群"><a href="#1）初始化集群" class="headerlink" title="1）初始化集群"></a>1）初始化集群</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ceph-deploy new ceph-node-45-213 ceph-node-45-215 ceph-node-45-217-217</span><br></pre></td></tr></table></figure>
-<p>（以上创建3个监控节点）<br>在当前目录下用 ls 和 cat 检查 ceph-deploy 的输出，应该有一个 Ceph 配置文件、一个 monitor 密钥环和一个日志文件。告诉 ceph-deploy 哪些节点是监控节点。</p>
-<h4 id="ceph-conf配置参考"><a href="#ceph-conf配置参考" class="headerlink" title="ceph.conf配置参考"></a>ceph.conf配置参考</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line">fsid = 0fd224ef-5972-4cd0-bf11-10b35b63366c</span><br><span class="line">mon_initial_members = ceph-cluster-1, ceph-cluster-2, ceph-cluster-3</span><br><span class="line">mon_host = 10.224.45.213,10.224.45.215,10.224.45.217</span><br><span class="line">auth_cluster_required = cephx</span><br><span class="line">auth_service_required = cephx</span><br><span class="line">auth_client_required = cephx</span><br><span class="line">filestore_xattr_use_omap = <span class="literal">true</span></span><br><span class="line"><span class="comment">#管理网络</span></span><br><span class="line">public network = 10.224.45.0/24</span><br><span class="line"><span class="comment">#集群网络</span></span><br><span class="line">cluster_network = 10.224.45.0/24</span><br><span class="line"><span class="comment">#每个osd上pg数量警告值，这个可以根据具体规划来设定</span></span><br><span class="line">mon_pg_warn_max_per_osd = 1000</span><br><span class="line"><span class="comment">#默认副本数为3</span></span><br><span class="line">osd_pool_default_size = 3</span><br><span class="line"><span class="comment">#最小副本数为2，也就是只能坏一个</span></span><br><span class="line">osd_pool_default_min_size = 2</span><br><span class="line"><span class="comment">#存储使用率达到85%将不再提供数据存储</span></span><br><span class="line">mon_osd_full_ratio = .85</span><br><span class="line"><span class="comment">#存储使用率达到70%集群将会warn状态</span></span><br><span class="line">mon_osd_nearfull_ratio = .70</span><br><span class="line"><span class="comment">#随机深度清洗概率,值越大，随机深度清洗概率越高,太高会影响业务</span></span><br><span class="line">osd_deep_scrub_randomize_ratio = 0.01</span><br><span class="line">[osd]</span><br><span class="line"><span class="comment">#默认90M，一次写操作最小值</span></span><br><span class="line">osd_max_write_size = 1024</span><br><span class="line"><span class="comment">#默认为10, 1-63 osd修复操作的优先级, 。值越小，优先级越低</span></span><br><span class="line">osd_recovery_op_priority = 1</span><br><span class="line"><span class="comment">#限定每个osd上同时有多少个pg可以同时进行recover</span></span><br><span class="line">osd_recovery_max_active = 1</span><br><span class="line"><span class="comment"># 和osd_recovery_max_active一起使用，要理解其含义。假设我们配置osd_recovery_max_single_start为1，osd_recovery_max_active为3，</span></span><br><span class="line"><span class="comment">#那么，这意味着OSD在某个时刻会为一个PG启动一个恢复操作，而且最多可以有三个恢复操作同时处于活动状态。</span></span><br><span class="line">osd_recovery_max_single_start = 1</span><br><span class="line"><span class="comment">#默认为8388608, 设置恢复数据块的大小，以防网络阻塞</span></span><br><span class="line">osd_recovery_max_chunk = 1048576</span><br><span class="line"><span class="comment">#恢复数据所需的线程数</span></span><br><span class="line">osd_recovery_threads = 1</span><br><span class="line"><span class="comment">#集群故障后,最大backfill数为1，太大会影响业务</span></span><br><span class="line">osd_max_backfills = 1</span><br><span class="line"><span class="comment">#清洗开始时间为晚上23点</span></span><br><span class="line">osd_scrub_begin_hour = 23</span><br><span class="line"><span class="comment">#清洗结束时间为早上7点</span></span><br><span class="line">osd_scrub_end_hour = 7</span><br><span class="line"><span class="comment">#默认为0，recovery的时间间隔，会影响recovery时常，如果recovery导致业务不正常，可以调大该值，增加时间间隔</span></span><br><span class="line">osd_recovery_sleep = 0</span><br><span class="line"><span class="comment"># 新加的osd会up/in,但并不会更新crushmap，prepare+active期间不会导致数据迁移</span></span><br><span class="line">osd_crush_update_on_start = <span class="literal">false</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 每个 Ceph 节点上都安装 Ceph</span></span><br><span class="line"><span class="comment">#使用IDC内部YUM源</span></span><br><span class="line">``` bash</span><br><span class="line">$  ceph-deploy install --repo-url http://yum.nick.com/ceph/rpm-jewel/el7 --gpg-url http://yum.ppc.com/ceph/keys/release.asc ceph-node-45-213 ceph-node-45-215 ceph-node-45-217 ceph-deploy-1.nick.com</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">[ops@ceph-deploy-1 ceph-cluster-1]$ ceph -v</span><br><span class="line">ceph version 10.2.11 (e4b061b47f07f583c92a050d9e84b1813a35671e)</span><br></pre></td></tr></table></figure>
+节点
+1
+2
+3
+4
 
 
-<h3 id="初始化监控节点"><a href="#初始化监控节点" class="headerlink" title="初始化监控节点"></a>初始化监控节点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">$ ceph-deploy mon create-initial</span><br><span class="line">``` </span><br><span class="line">查看mon状态</span><br><span class="line">``` bash</span><br><span class="line"><span class="comment"># ceph quorum_status --format json-pretty</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;election_epoch&quot;</span>: 14,</span><br><span class="line">    <span class="string">&quot;quorum&quot;</span>: [</span><br><span class="line">        0,</span><br><span class="line">        1,</span><br><span class="line">        2</span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;quorum_names&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;ceph-node-45-213&quot;</span>,</span><br><span class="line">        <span class="string">&quot;ceph-node-45-215&quot;</span>,</span><br><span class="line">        <span class="string">&quot;ceph-node-45-217&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;quorum_leader_name&quot;</span>: <span class="string">&quot;ceph-node-45-213&quot;</span>,</span><br><span class="line">    <span class="string">&quot;monmap&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;epoch&quot;</span>: 2,</span><br><span class="line">        <span class="string">&quot;fsid&quot;</span>: <span class="string">&quot;35cb4b3c-a079-4691-abdb-5a97e14ff9fa&quot;</span>,</span><br><span class="line">        <span class="string">&quot;modified&quot;</span>: <span class="string">&quot;2018-08-01 15:04:01.890960&quot;</span>,</span><br><span class="line">        <span class="string">&quot;created&quot;</span>: <span class="string">&quot;2018-08-01 15:03:33.368149&quot;</span>,</span><br><span class="line">        <span class="string">&quot;mons&quot;</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">&quot;rank&quot;</span>: 0,</span><br><span class="line">                <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ceph-node-45-213&quot;</span>,</span><br><span class="line">                <span class="string">&quot;addr&quot;</span>: <span class="string">&quot;10.224.45.213:6789\/0&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">&quot;rank&quot;</span>: 1,</span><br><span class="line">                <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ceph-node-45-215&quot;</span>,</span><br><span class="line">                <span class="string">&quot;addr&quot;</span>: <span class="string">&quot;10.224.45.215:6789\/0&quot;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">&quot;rank&quot;</span>: 2,</span><br><span class="line">                <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ceph-node-45-217&quot;</span>,</span><br><span class="line">                <span class="string">&quot;addr&quot;</span>: <span class="string">&quot;10.224.45.217:6789\/0&quot;</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+10.224.45.213    Mds    Mon    Osd
+10.224.45.215         Mon    Osd
+10.224.45.217         Mon    Osd
+10.224.188.120    ceph-deploy          
 
-<h3 id="创建OSD-MDS"><a href="#创建OSD-MDS" class="headerlink" title="创建OSD/MDS"></a>创建OSD/MDS</h3><p>Ceph 存储节点的硬盘情况：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy disk list ceph-node-45-217</span><br><span class="line">ceph-deploy disk list ceph-node-45-215</span><br><span class="line">ceph-deploy disk list ceph-node-45-213</span><br></pre></td></tr></table></figure>
-<h4 id="创建osd"><a href="#创建osd" class="headerlink" title="创建osd"></a>创建osd</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ ceph-deploy disk zap ceph-node-45-213:sdb ceph-node-45-213:sdc ceph-node-45-213:sdd ceph-node-45-213:sde ceph-node-45-213:sdf</span><br><span class="line">$ ceph-deploy disk zap ceph-node-45-215:sdb ceph-node-45-215:sdc ceph-node-45-215:sdd ceph-node-45-215:sde ceph-node-45-215:sdf</span><br><span class="line">$ ceph-deploy disk zap ceph-node-45-217:sdb ceph-node-45-217:sdc ceph-node-45-217:sdd ceph-node-45-217:sde ceph-node-45-217:sdf</span><br><span class="line">$ ceph-deploy osd create ceph-node-45-217:sdb ceph-node-45-217:sdc ceph-node-45-217:sdd ceph-node-45-217:sde ceph-node-45-217:sdf</span><br><span class="line">$ ceph-deploy osd create ceph-node-45-215:sdb ceph-node-45-215:sdc ceph-node-45-215:sdd ceph-node-45-215:sde ceph-node-45-215:sdf</span><br><span class="line">$ ceph-deploy osd create ceph-node-45-213:sdb ceph-node-45-213:sdc ceph-node-45-213:sdd ceph-node-45-213:sde ceph-node-45-213:sdf</span><br></pre></td></tr></table></figure>
-<p>参考说明<br>ceph-deploy osd prepare ceph-node1:sdb:/dev/sdd ceph-node1:sdc:/dev/sdd ceph-node2:sdb:/dev/sdd ceph-node2:sdc:/dev/sdd ceph-node3:sdb:/dev/sdd ceph-node3:sdc:/dev/sdd<br>prepare多个osd  ceph-node1:sdb:/dev/sdd 意思是在node1上创建一个osd，使用磁盘sdb作为数据盘，osd journal分区从sdd磁盘上划分 每个节点上2个osd磁盘sd{b,c}，使用同一个日志盘/dev/sdd，prepare过程中ceph会自动在/dev/sdd上创建2个日志分区供2个osd使用，日志分区的大小由上步骤osd_journal_size = 10000(10G)指定，你应当修改这个值prepare 命令只准备 OSD。在大多数操作系统中，硬盘分区创建后，不用 activate 命令也会自动执行 activate 阶段（通过 Ceph 的 udev 规则）</p>
-<h4 id="激活osd"><a href="#激活osd" class="headerlink" title="激活osd"></a>激活osd</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph-deploy osd activate ceph-node1:sdb1:/dev/sdd1 ceph-node1:sdc1:/dev/sdd2 ceph-node2:sdb1:/dev/sdd1 ceph-node2:sdc1:/dev/sdd2 ceph-node3:sdb1:/dev/sdd1 ceph-node3:sdc1:/dev/sdd2</span><br></pre></td></tr></table></figure>
-<p>1sdd1,sdd2 为ceph自动创建的2个日志分区 activate 命令会让 OSD 进入 up 且 in 状态，此命令所用路径和 prepare 相同。在一个节点运行多个OSD 守护进程、且多个 OSD 守护进程共享一个日志分区时，你应该考虑整个节点的最小 CRUSH 故障域，因为如果这个 SSD 坏了，所有用其做日志的 OSD 守护进程也会失效</p>
-<p>状态查看</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">[root@ceph-node-45-213 ops]<span class="comment"># ceph osd tree</span></span><br><span class="line">ID WEIGHT   TYPE NAME                 UP/DOWN REWEIGHT PRIMARY-AFFINITY</span><br><span class="line">-1 27.19643 root default</span><br><span class="line">-2  9.06548     host ceph-node-45-217</span><br><span class="line">0  1.81310         osd.0                  up  1.00000          1.00000</span><br><span class="line">1  1.81310         osd.1                  up  1.00000          1.00000</span><br><span class="line">2  1.81310         osd.2                  up  1.00000          1.00000</span><br><span class="line">3  1.81310         osd.3                  up  1.00000          1.00000</span><br><span class="line">4  1.81310         osd.4                  up  1.00000          1.00000</span><br><span class="line">-3  9.06548     host ceph-node-45-215</span><br><span class="line">5  1.81310         osd.5                  up  1.00000          1.00000</span><br><span class="line">6  1.81310         osd.6                  up  1.00000          1.00000</span><br><span class="line">7  1.81310         osd.7                  up  1.00000          1.00000</span><br><span class="line">8  1.81310         osd.8                  up  1.00000          1.00000</span><br><span class="line">9  1.81310         osd.9                  up  1.00000          1.00000</span><br><span class="line">-4  9.06548     host ceph-node-45-213</span><br><span class="line">10  1.81310         osd.10                 up  1.00000          1.00000</span><br><span class="line">11  1.81310         osd.11                 up  1.00000          1.00000</span><br><span class="line">12  1.81310         osd.12                 up  1.00000          1.00000</span><br><span class="line">13  1.81310         osd.13                 up  1.00000          1.00000</span><br><span class="line">14  1.81310         osd.14                 up  1.00000          1.00000</span><br></pre></td></tr></table></figure>
-<p>节点分区如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@ceph-node-45-213 ops]<span class="comment"># df -h</span></span><br><span class="line">Filesystem      Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/sda3       271G  2.7G  268G   1% /</span><br><span class="line">devtmpfs         63G     0   63G   0% /dev</span><br><span class="line">tmpfs            63G     0   63G   0% /dev/shm</span><br><span class="line">tmpfs            63G   26M   63G   1% /run</span><br><span class="line">tmpfs            63G     0   63G   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1       497M  133M  364M  27% /boot</span><br><span class="line">tmpfs            13G     0   13G   0% /run/user/1001</span><br><span class="line">/dev/sdb1       1.9T  109M  1.9T   1% /var/lib/ceph/osd/ceph-10</span><br><span class="line">/dev/sdc1       1.9T  109M  1.9T   1% /var/lib/ceph/osd/ceph-11</span><br><span class="line">/dev/sdd1       1.9T  109M  1.9T   1% /var/lib/ceph/osd/ceph-12</span><br><span class="line">/dev/sde1       1.9T  109M  1.9T   1% /var/lib/ceph/osd/ceph-13</span><br><span class="line">/dev/sdf1       1.9T  109M  1.9T   1% /var/lib/ceph/osd/ceph-14</span><br></pre></td></tr></table></figure>
 
-<h4 id="监控检测"><a href="#监控检测" class="headerlink" title="监控检测"></a>监控检测</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[root@ceph-node-45-213 ops]<span class="comment"># ceph -s</span></span><br><span class="line">    cluster 2eab8699-dfd2-40f2-a632-584504f8f476</span><br><span class="line">     health HEALTH_WARN</span><br><span class="line">            too few PGs per OSD (12 &lt; min 30)</span><br><span class="line">     monmap e2: 3 mons at &#123;ceph-node-45-213=10.224.45.213:6789/0,ceph-node-45-215=10.224.45.215:6789/0,ceph-node-45-217=10.224.45.217:6789/0&#125;</span><br><span class="line">            election epoch 8, quorum 0,1,2 ceph-node-45-213,ceph-node-45-215,ceph-node-45-217</span><br><span class="line">     osdmap e72: 15 osds: 15 up, 15 <span class="keyword">in</span></span><br><span class="line">            flags sortbitwise,require_jewel_osds</span><br><span class="line">      pgmap v198: 64 pgs, 1 pools, 0 bytes data, 0 objects</span><br><span class="line">            1627 MB used, 27847 GB / 27848 GB avail</span><br><span class="line">                  64 active+clean</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
-<p>原因：<br>由于是新集群，只有一个pool</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ceph-node-45-213 ops]<span class="comment"># ceph osd lspools</span></span><br><span class="line">0 rbd,</span><br></pre></td></tr></table></figure>
-<p>查看rpb pool的PGS</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@ceph-node-45-213 ops]<span class="comment"># ceph osd pool get rbd pg_num</span></span><br><span class="line">pg_num: 64</span><br></pre></td></tr></table></figure>
-<p>pgs为64，因为是2副本的配置，所以当有15个osd的时候，每个osd上均分了64/15 *2=8个pgs,也就是出现了如上的错误 小于最小配置30个<br>解决办法：修改默认pool rbd的pgs</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool <span class="built_in">set</span> rbd pg_num 225</span><br></pre></td></tr></table></figure>
-<p>要把pgp_num也一并修改，默认两个pg_num和pgp_num一样大小均为64，此处也将两个的值都设为225</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ceph osd pool <span class="built_in">set</span> rbd pgp_num 225</span><br><span class="line">[root@ceph-node-45-213 ops]<span class="comment"># ceph -s</span></span><br><span class="line">    cluster 2eab8699-dfd2-40f2-a632-584504f8f476</span><br><span class="line">     health HEALTH_OK</span><br><span class="line">     monmap e2: 3 mons at &#123;ceph-node-45-213=10.224.45.213:6789/0,ceph-node-45-215=10.224.45.215:6789/0,ceph-node-45-217=10.224.45.217:6789/0&#125;</span><br><span class="line">            election epoch 8, quorum 0,1,2 ceph-node-45-213,ceph-node-45-215,ceph-node-45-217</span><br><span class="line">     osdmap e80: 15 osds: 15 up, 15 <span class="keyword">in</span></span><br><span class="line">            flags sortbitwise,require_jewel_osds</span><br><span class="line">      pgmap v244: 225 pgs, 1 pools, 0 bytes data, 0 objects</span><br><span class="line">            1633 MB used, 27847 GB / 27848 GB avail</span><br><span class="line">                 225 active+clean</span><br></pre></td></tr></table></figure>
+环境信息
+1）主机名
+1
+2
+3
+4
 
-<h3 id="添加metadata-server"><a href="#添加metadata-server" class="headerlink" title="添加metadata server"></a>添加metadata server</h3><p>要使用CephFS，就必须至少添加一个metadata server</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ceph-deploy mds create ceph-node-45-213</span><br></pre></td></tr></table></figure>
-<h3 id="创建-CEPH-文件系统"><a href="#创建-CEPH-文件系统" class="headerlink" title="创建 CEPH 文件系统"></a>创建 CEPH 文件系统</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ceph osd pool create cephfs_data &lt;pg_num&gt;</span><br><span class="line">$ ceph osd pool create cephfs_metadata &lt;pg_num&gt;</span><br></pre></td></tr></table></figure>
-<p>pg_num我设置为512</p>
-<p>创建好存储池后，你就可以用 fs new 命令创建文件系统了：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ceph fs new &lt;fs_name&gt; &lt;metadata&gt; &lt;data&gt;</span><br></pre></td></tr></table></figure>
-<p>例如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ceph fs new cephfs cephfs_metadata cephfs_data</span><br><span class="line">$ ceph fs ls</span><br><span class="line">name: cephfs, metadata pool: cephfs_metadata, data pools: [cephfs_data ]</span><br></pre></td></tr></table></figure>
-<p>文件系统创建完毕后， MDS 服务器就能达到 active 状态了，比如在一个单 MDS 系统中：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ceph mds <span class="built_in">stat</span></span><br><span class="line">e5: 1/1/1 up &#123;0=a=up:active&#125;</span><br></pre></td></tr></table></figure>
-<p>建好文件系统且 MDS 活跃后，你就可以挂载此文件系统了。如果你创建的文件系统不止一个，挂载的时候还需指定挂载哪个。</p>
-<h3 id="挂载"><a href="#挂载" class="headerlink" title="挂载"></a>挂载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t ceph 10.224.45.215,10.224.45.217,10.224.45.213:6789:/ /data -o name=admin,secret=AQCLLWlbU7dJMBAAyYN2hf+6mvwG1DMaAWyHig==</span><br></pre></td></tr></table></figure>
-<p>密钥是部署集群时候ceph.client.admin.keyring这个文件里的</p>
 
+10.224.188.120 ceph-deploy-1.nick.com
+10.224.45.213 ceph-node-45-213.nick.com ceph-node-45-213
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/28/ceph/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -689,7 +657,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-18 00:30:13" itemprop="dateModified" datetime="2020-08-18T00:30:13+08:00">2020-08-18</time>
+                <time title="修改时间：2020-08-18 02:25:41" itemprop="dateModified" datetime="2020-08-18T02:25:41+08:00">2020-08-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -712,21 +680,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>swap的作用可简单描述为:<br>当内存不够用时,将存储器中的数据块从DRAM移到swap的磁盘空间中,以释放更多的空间给当前进程使用.<br>当再次需要那些数据时,就可以将swap磁盘中的数据重新移到内存,而将那些不用的数据块从内存移到swap中.<br>1)数据从内存移动交换区的行为被称为页面调用,发生在后台的页面调用没有来自应用程序的干涉.<br>2)swap空间是分页的,每一页的大小和内存页的大小一样.<br>3)并不是一定要给每个系统划分SWAP,比如大多数的嵌入式就没有swap.</p>
-<p>内存耗尽原因:<br>1)在进程收到OOM之前,内核将刷新文件系统的cache来释放空间.<br>2)将交换区的页面移到磁盘上.<br>3)当内存变少时,虚拟性使每个进程通过交换区来做简单的上下文环境切换.<br>4)当进程消耗尽交换内存后,才会引发out-of-memory(OOM)来kill那些进程.</p>
-<p>配置文件/proc/sys/vm/drop_caches 这个文件中记录了缓存释放的参数，默认值为0，<br>0 – 不释放<br>1 – 释放页缓存<br>2 – 释放dentries和inodes<br>3 – 释放所有缓存</p>
-<p>首先我们需要使用sync同步缓存数据</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sync</span></span><br></pre></td></tr></table></figure>
-<p>将参数写进/proc/sys/vm/drop_caches文件中</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># echo 3 &gt; /proc/sys/vm/drop_caches</span></span><br></pre></td></tr></table></figure>
+          swap的作用可简单描述为:
+当内存不够用时,将存储器中的数据块从DRAM移到swap的磁盘空间中,以释放更多的空间给当前进程使用.
+当再次需要那些数据时,就可以将swap磁盘中的数据重新移到内存,而将那些不用的数据块从内存移到swap中.
+1)数据从内存移动交换区的行为被称为页面调用,发生在后台的页面调用没有来自应用程序的干涉.
+2)swap空间是分页的,每一页的大小和内存页的大小一样.
+3)并不是一定要给每个系统划分SWAP,比如大多数的嵌入式就没有swap.
 
-<p>在执行以上操作以后，查看你的swap分区还是满了，你首先查看一下你实际的内存剩多少空间，然后在查看自己的swap空间用了多少，首先提前保证实际剩余的内存比你的swap的内存的空间要大，然后执行一下操作，否则会宕机的！</p>
-<p>首先我们停掉swap分区，查看到你的swap分区是挂在哪里</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># swapon -s</span></span><br></pre></td></tr></table></figure>
-<p>比如是挂到  /dev/sda5</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># swapoff   /dev/sda5</span></span><br></pre></td></tr></table></figure>
-<p>停止是需要一段时间的，因为他会把内存释放到实际内存当中，然后在启动我们的swap分区</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># swapon -a</span></span><br></pre></td></tr></table></figure>
+内存耗尽原因:
+1)在进程收到OOM之前,内核将刷新文件系统的cache来释放空间.
+2)将交换区的页面移到磁盘上.
+3)当内存
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2018/08/28/linux_swap_out/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

@@ -4,7 +4,8 @@
     <title>Hello World</title>
     <url>/2020/08/17/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><a id="more"></a>
+<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
@@ -23,6 +24,7 @@
     <url>/2018/08/28/ceph/</url>
     <content><![CDATA[<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="http://docs.ceph.org.cn/">http://docs.ceph.org.cn/</a></p>
 <h3 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">10.224.45.213    Mds    Mon    Osd</span><br><span class="line">10.224.45.215         Mon    Osd</span><br><span class="line">10.224.45.217         Mon    Osd</span><br><span class="line">10.224.188.120    ceph-deploy          </span><br></pre></td></tr></table></figure>
+<!-- moer -->
 
 <h3 id="环境信息"><a href="#环境信息" class="headerlink" title="环境信息"></a>环境信息</h3><h4 id="1）主机名"><a href="#1）主机名" class="headerlink" title="1）主机名"></a>1）主机名</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">10.224.188.120 ceph-deploy-1.nick.com</span><br><span class="line">10.224.45.213 ceph-node-45-213.nick.com ceph-node-45-213</span><br><span class="line">10.224.45.215 ceph-node-45-215.nick.com ceph-node-45-215</span><br><span class="line">10.224.45.217 ceph-node-45-217.nick.com ceph-node-45-217</span><br></pre></td></tr></table></figure>
 <h4 id="2）deploy节点用户秘钥添加"><a href="#2）deploy节点用户秘钥添加" class="headerlink" title="2）deploy节点用户秘钥添加"></a>2）deploy节点用户秘钥添加</h4><p>……</p>
@@ -83,6 +85,7 @@
     <title>cmdb</title>
     <url>/2018/09/05/cmdb/</url>
     <content><![CDATA[<p>在实际运维工作中，70%左右的运维相关工和环境变更有着直接关系，实施变更管理的难点不是工具，而是使用过程中的流程管理。如发布平台，监控平台，配置中心等相关数据孤立，单独维护重复操作成本较高。根据自身业务开发的CMDB把一些相关的信息作为资源在系统进行管理，通过API接口方式提供子系统或其他平台调用，当信息变更时能及时联动</p>
+<a id="more"></a>
 <h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p><img src="/images/pasted-0.png" alt="架构图"></p>
 <p>CMDB设计重要的就是和自动化结合，当一台设备上架后通过录入网卡,SN号等信息选择操作系统，RAID分区等，完成自动装机后将自动更新到CMDB和虚拟化池中。后续在项目资源领用时通过自动化接口生成标准化环境，加入项目服务中。同时其他系统平台也知晓变更信息，保证了后续操作的可靠性。</p>
 <h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p>已知的信息种类繁多，如项目信息项目属于那条业务线对应的开发人员信息，主机信息硬件配置，机架位置网络地址，应用信息代码库的地址，部署目录，集群环境等。我们将信息大致分为设备信息，项目信息。这里必须要确保CMDB数据的准确性，必须制定数据录入流程。<br>硬件信息基本是固定的，如节点配置，设备物理位置，关联交换机等，其中大部分可以通过自动化手段去获取后自动变更，如通过IPMI接口获取硬件信息，ansible获取统信息等系。</p>
@@ -106,6 +109,7 @@
     <title>Linux释放Swap分区</title>
     <url>/2018/08/28/linux_swap_out/</url>
     <content><![CDATA[<p>swap的作用可简单描述为:<br>当内存不够用时,将存储器中的数据块从DRAM移到swap的磁盘空间中,以释放更多的空间给当前进程使用.<br>当再次需要那些数据时,就可以将swap磁盘中的数据重新移到内存,而将那些不用的数据块从内存移到swap中.<br>1)数据从内存移动交换区的行为被称为页面调用,发生在后台的页面调用没有来自应用程序的干涉.<br>2)swap空间是分页的,每一页的大小和内存页的大小一样.<br>3)并不是一定要给每个系统划分SWAP,比如大多数的嵌入式就没有swap.</p>
+<a id="more"></a>
 <p>内存耗尽原因:<br>1)在进程收到OOM之前,内核将刷新文件系统的cache来释放空间.<br>2)将交换区的页面移到磁盘上.<br>3)当内存变少时,虚拟性使每个进程通过交换区来做简单的上下文环境切换.<br>4)当进程消耗尽交换内存后,才会引发out-of-memory(OOM)来kill那些进程.</p>
 <p>配置文件/proc/sys/vm/drop_caches 这个文件中记录了缓存释放的参数，默认值为0，<br>0 – 不释放<br>1 – 释放页缓存<br>2 – 释放dentries和inodes<br>3 – 释放所有缓存</p>
 <p>首先我们需要使用sync同步缓存数据</p>
@@ -119,7 +123,8 @@
 <p>比如是挂到  /dev/sda5</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># swapoff   /dev/sda5</span></span><br></pre></td></tr></table></figure>
 <p>停止是需要一段时间的，因为他会把内存释放到实际内存当中，然后在启动我们的swap分区</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># swapon -a</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># swapon -a</span></span><br></pre></td></tr></table></figure>
+]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -133,6 +138,7 @@
     <content><![CDATA[<h3 id="Mysql常见问题"><a href="#Mysql常见问题" class="headerlink" title="Mysql常见问题"></a>Mysql常见问题</h3><h4 id="存储引擎"><a href="#存储引擎" class="headerlink" title="存储引擎"></a>存储引擎</h4><p>MySQL常见的两种存储引擎：MyISAM与InnoDB</p>
 <h4 id="字符集及校对规则"><a href="#字符集及校对规则" class="headerlink" title="字符集及校对规则"></a>字符集及校对规则</h4><p>字符集指的是一种从二进制编码到某类字符符号的映射。校对规则则是指某种字符集下的排序规则。Mysql中每一种字符集都会对应一系列的校对规则。</p>
 <p>Mysql采用的是类似继承的方式指定字符集的默认值，每个数据库以及每张数据表都有自己的默认值，他们逐层继承。比如：某个库中所有表的默认字符集将是该数据库所指定的字符集（这些表在没有指定字符集的情况下，才会采用默认字符集） PS：整理自《Java工程师修炼之道》</p>
+<a id="more"></a>
 <h4 id="索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）"><a href="#索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）" class="headerlink" title="索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）"></a>索引相关的内容（数据库使用中非常关键的技术，合理正确的使用索引可以大大提高数据库的查询性能）</h4><p>Mysql索引使用的数据结构主要有BTree索引 和 哈希索引 。对于哈希索引来说，底层的数据结构就是哈希表，因此在绝大多数需求为单条记录查询的时候，可以选择哈希索引，查询性能最快；其余大部分场景，建议选择BTree索引。</p>
 <p>Mysql的BTree索引使用的是B数中的B+Tree，但对于主要的两种存储引擎的实现方式是不同的。</p>
 <p>  MyISAM: B+Tree叶节点的data域存放的是数据记录的地址。在索引检索的时候，首先按照B+Tree搜索算法搜索索引，如果指定的Key存在，则取出其data域的值，然后以data域的值为地址读取相应的数据记录。这被称为“非聚簇索引”。</p>
