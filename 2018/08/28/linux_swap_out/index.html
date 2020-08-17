@@ -20,15 +20,20 @@
     var CONFIG = {"hostname":"doc.hey-nick.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hey Nick">
-<meta property="og:url" content="http://doc.hey-nick.com/archives/index.html">
+  <meta name="description" content="swap的作用可简单描述为:当内存不够用时,将存储器中的数据块从DRAM移到swap的磁盘空间中,以释放更多的空间给当前进程使用.当再次需要那些数据时,就可以将swap磁盘中的数据重新移到内存,而将那些不用的数据块从内存移到swap中.1)数据从内存移动交换区的行为被称为页面调用,发生在后台的页面调用没有来自应用程序的干涉.2)swap空间是分页的,每一页的大小和内存页的大小一样.3)并不是一定要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux释放Swap分区">
+<meta property="og:url" content="http://doc.hey-nick.com/2018/08/28/linux_swap_out/index.html">
 <meta property="og:site_name" content="Hey Nick">
+<meta property="og:description" content="swap的作用可简单描述为:当内存不够用时,将存储器中的数据块从DRAM移到swap的磁盘空间中,以释放更多的空间给当前进程使用.当再次需要那些数据时,就可以将swap磁盘中的数据重新移到内存,而将那些不用的数据块从内存移到swap中.1)数据从内存移动交换区的行为被称为页面调用,发生在后台的页面调用没有来自应用程序的干涉.2)swap空间是分页的,每一页的大小和内存页的大小一样.3)并不是一定要">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-08-28T09:31:00.000Z">
+<meta property="article:modified_time" content="2020-08-17T16:30:13.235Z">
 <meta property="article:author" content="Nick">
+<meta property="article:tag" content="Swap">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://doc.hey-nick.com/archives/">
+<link rel="canonical" href="http://doc.hey-nick.com/2018/08/28/linux_swap_out/">
 
 
 <script id="page-configurations">
@@ -36,12 +41,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Hey Nick</title>
+  <title>Linux释放Swap分区 | Hey Nick</title>
   
 
 
@@ -140,133 +145,108 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 5 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://doc.hey-nick.com/2018/08/28/linux_swap_out/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nick">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey Nick">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux释放Swap分区
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-28 17:31:00" itemprop="dateCreated datePublished" datetime="2018-08-28T17:31:00+08:00">2018-08-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-18 00:30:13" itemprop="dateModified" datetime="2020-08-18T00:30:13+08:00">2020-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+        <p>swap的作用可简单描述为:<br>当内存不够用时,将存储器中的数据块从DRAM移到swap的磁盘空间中,以释放更多的空间给当前进程使用.<br>当再次需要那些数据时,就可以将swap磁盘中的数据重新移到内存,而将那些不用的数据块从内存移到swap中.<br>1)数据从内存移动交换区的行为被称为页面调用,发生在后台的页面调用没有来自应用程序的干涉.<br>2)swap空间是分页的,每一页的大小和内存页的大小一样.<br>3)并不是一定要给每个系统划分SWAP,比如大多数的嵌入式就没有swap.</p>
+<p>内存耗尽原因:<br>1)在进程收到OOM之前,内核将刷新文件系统的cache来释放空间.<br>2)将交换区的页面移到磁盘上.<br>3)当内存变少时,虚拟性使每个进程通过交换区来做简单的上下文环境切换.<br>4)当进程消耗尽交换内存后,才会引发out-of-memory(OOM)来kill那些进程.</p>
+<p>配置文件/proc/sys/vm/drop_caches 这个文件中记录了缓存释放的参数，默认值为0，<br>0 – 不释放<br>1 – 释放页缓存<br>2 – 释放dentries和inodes<br>3 – 释放所有缓存</p>
+<p>首先我们需要使用sync同步缓存数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sync</span></span><br></pre></td></tr></table></figure>
+<p>将参数写进/proc/sys/vm/drop_caches文件中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># echo 3 &gt; /proc/sys/vm/drop_caches</span></span><br></pre></td></tr></table></figure>
+
+<p>在执行以上操作以后，查看你的swap分区还是满了，你首先查看一下你实际的内存剩多少空间，然后在查看自己的swap空间用了多少，首先提前保证实际剩余的内存比你的swap的内存的空间要大，然后执行一下操作，否则会宕机的！</p>
+<p>首先我们停掉swap分区，查看到你的swap分区是挂在哪里</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># swapon -s</span></span><br></pre></td></tr></table></figure>
+<p>比如是挂到  /dev/sda5</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># swapoff   /dev/sda5</span></span><br></pre></td></tr></table></figure>
+<p>停止是需要一段时间的，因为他会把内存释放到实际内存当中，然后在启动我们的swap分区</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># swapon -a</span></span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-08-17T23:15:39+08:00"
-              content="2020-08-17">
-          08-17
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Swap/" rel="tag"># Swap</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/08/17/hello-world/" itemprop="url">
-            <span itemprop="name">Hello World</span>
-          </a>
-      </div>
+        
 
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2018/08/28/ceph/" rel="next" title="Ceph Cluster 安装">
+      Ceph Cluster 安装 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-09-05T13:34:34+08:00"
-              content="2018-09-05">
-          09-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/09/05/cmdb/" itemprop="url">
-            <span itemprop="name">cmdb</span>
-          </a>
-      </div>
-
-    </header>
+      </footer>
+    
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-08-31T16:53:38+08:00"
-              content="2018-08-31">
-          08-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/08/31/Mysql%E7%94%AF%E6%AD%8C%EE%9D%86%E9%97%82%EE%87%80%EE%95%BD/" itemprop="url">
-            <span itemprop="name">Mysql常见问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-08-28T17:31:00+08:00"
-              content="2018-08-28">
-          08-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/08/28/ceph/" itemprop="url">
-            <span itemprop="name">Ceph Cluster 安装</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-08-28T17:31:00+08:00"
-              content="2018-08-28">
-          08-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2018/08/28/linux_swap_out/" itemprop="url">
-            <span itemprop="name">Linux释放Swap分区</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
-    </div>
-  </div>
   
   
-  
-
   
 
 

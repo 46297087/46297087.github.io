@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.2">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"doc.hey-nick.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在实际运维工作中，70%左右的运维相关工和环境变更有着直接关系，实施变更管理的难点不是工具，而是使用过程中的流程管理。如发布平台，监控平台，配置中心等相关数据孤立，单独维护重复操作成本较高。根据自身业务开发的CMDB把一些相关的信息作为资源在系统进行管理，通过API接口方式提供子系统或其他平台调用，当信息变更时能及时联动 系统设计 CMDB设计重要的就是和自动化结合，当一台设备上架后通过录入网卡,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cmdb">
+<meta property="og:url" content="http://doc.hey-nick.com/2018/09/05/cmdb/index.html">
+<meta property="og:site_name" content="Hey Nick">
+<meta property="og:description" content="在实际运维工作中，70%左右的运维相关工和环境变更有着直接关系，实施变更管理的难点不是工具，而是使用过程中的流程管理。如发布平台，监控平台，配置中心等相关数据孤立，单独维护重复操作成本较高。根据自身业务开发的CMDB把一些相关的信息作为资源在系统进行管理，通过API接口方式提供子系统或其他平台调用，当信息变更时能及时联动 系统设计 CMDB设计重要的就是和自动化结合，当一台设备上架后通过录入网卡,">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://doc.hey-nick.com/home/nick/hexo/source/_posts/images/cmdb-1.png">
+<meta property="article:published_time" content="2018-09-05T05:34:34.000Z">
+<meta property="article:modified_time" content="2020-08-17T16:30:12.690Z">
+<meta property="article:author" content="Nick">
+<meta property="article:tag" content="思路">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://doc.hey-nick.com/home/nick/hexo/source/_posts/images/cmdb-1.png">
+
+<link rel="canonical" href="http://doc.hey-nick.com/2018/09/05/cmdb/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>cmdb | Hey Nick</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hey Nick</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">work notebook</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://doc.hey-nick.com/2018/09/05/cmdb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nick">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hey Nick">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          cmdb
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-05 13:34:34" itemprop="dateCreated datePublished" datetime="2018-09-05T13:34:34+08:00">2018-09-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-18 00:30:12" itemprop="dateModified" datetime="2020-08-18T00:30:12+08:00">2020-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">linux</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在实际运维工作中，70%左右的运维相关工和环境变更有着直接关系，实施变更管理的难点不是工具，而是使用过程中的流程管理。如发布平台，监控平台，配置中心等相关数据孤立，单独维护重复操作成本较高。根据自身业务开发的CMDB把一些相关的信息作为资源在系统进行管理，通过API接口方式提供子系统或其他平台调用，当信息变更时能及时联动</p>
+<h3 id="系统设计"><a href="#系统设计" class="headerlink" title="系统设计"></a>系统设计</h3><p><img src="/home/nick/hexo/source/_posts/images/cmdb-1.png" alt="架构图"></p>
+<p>CMDB设计重要的就是和自动化结合，当一台设备上架后通过录入网卡,SN号等信息选择操作系统，RAID分区等，完成自动装机后将自动更新到CMDB和虚拟化池中。后续在项目资源领用时通过自动化接口生成标准化环境，加入项目服务中。同时其他系统平台也知晓变更信息，保证了后续操作的可靠性。</p>
+<h3 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h3><p>已知的信息种类繁多，如项目信息项目属于那条业务线对应的开发人员信息，主机信息硬件配置，机架位置网络地址，应用信息代码库的地址，部署目录，集群环境等。我们将信息大致分为设备信息，项目信息。这里必须要确保CMDB数据的准确性，必须制定数据录入流程。<br>硬件信息基本是固定的，如节点配置，设备物理位置，关联交换机等，其中大部分可以通过自动化手段去获取后自动变更，如通过IPMI接口获取硬件信息，ansible获取统信息等系。</p>
+<p>项目信息十分重要，项目中的环境，资源，发布，监控等信息关联，有了这些信息才能让资源真正的生效。为了保证录入信息的标准化和准确性，目前使用项目创建模板录入以及填入关键信息后自动生成其他部分。</p>
+<p>在项目创建后会调用API完成环境初始化如git仓库，jenkins job，Nginx，logstash，监控等配置创建。</p>
+<p>在CMDB上线初期，信息录入依靠人工完成。设想下，一个项目有测试，预发，生产，压测，沙箱环境，在录入jenkisn，git配置，生成web配置等，每个环节需要录入大量的数据信息，重复劳动而数据准确性不高。后期总结其他业务需求，使用模板调用API自动生成多环境配置以及相关依赖配置，不仅简化了步骤，还保证了数据的准确性。</p>
+<h3 id="中心化"><a href="#中心化" class="headerlink" title="中心化"></a>中心化</h3><p>CMDB是中心化的，通过数据信息运维平台实现了虚拟化管理，自动化管理，设备维保等子系统。以及完成对接发布平台，配置中心，数据库管理，告警中心，docker管理等平台服务，各个平台相互依存，在CMDB发送变更后各个平台能及时应用到具体业务场景上。<br>CMDB初期其他平台直接调用接口获取相关信息，随着信息量逐步增加，数据维度越来越多。服务调用越来越慢。后增加缓存服务，CMDB变更记录后自动更新至缓存，接口稳定性时效性得到保障</p>
+<p>（场景-业务扩缩容）<br>（场景-虚拟化管理）</p>
+<h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>CMDB的价值之一，将数据信息可视化展示。直观的让相关人员了解项目信息，使用资源，项目成本，可用容量。</p>
+<p>运维成本控制是运维建设的核心部分之一，也是极其复杂的。我们要知道每个月费用支出在哪里，每月项目所使用的资源是多少？ CMDB中记录了每个机柜，网络专线，设备采购，其它第三方服务等费用。通过每月的硬件设备折旧，机柜容量&amp;网络专线分摊为参考，项目分别使用的虚拟化或硬件资源加上专属服务采购费用，计算出相应项目每月环境运营成本。<br>结合每月的调用量趋势图，对项目的扩容缩容提供有效的依据。硬件采购历史价格对日后预算费用提供参考。</p>
+<h3 id="未来规划"><a href="#未来规划" class="headerlink" title="未来规划"></a>未来规划</h3><p>1.CMDB建设成功带来的另一个未来价值是作为配置元数据的价值，可以为运维大数据分析提供可信基础，促进运维走向大数据分析、智能决策阶段。如，我们在做变更的时候，需要去看该变更的影响范围是多大? 变更是否将引起什么样的情况？曾经这样的变更是否引起故障？如果有故障是怎么修复？<br>2.网络拓扑关系没有在CMDB中显示，计划将基于SNMP协议生成网络拓扑</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%80%9D%E8%B7%AF/" rel="tag"># 思路</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/08/31/Mysql%E7%94%AF%E6%AD%8C%EE%9D%86%E9%97%82%EE%87%80%EE%95%BD/" rel="prev" title="Mysql常见问题">
+      <i class="fa fa-chevron-left"></i> Mysql常见问题
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/17/hello-world/" rel="next" title="Hello World">
+      Hello World <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">系统设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">信息收集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%BF%83%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">中心化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">4.</span> <span class="nav-text">可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5%E8%A7%84%E5%88%92"><span class="nav-number">5.</span> <span class="nav-text">未来规划</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nick</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nick</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
